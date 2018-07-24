@@ -1,0 +1,19 @@
+class Solution:
+    def reverseVowels(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        tmp=[]
+        
+        for i in range(len(s)):
+            if s[i] in ['a','e','i','o','u','A','E','I','O','U']:
+                tmp.append(s[i])
+                
+        k = len(tmp)
+        s = list(s)
+        for i in range(len(s)):
+            if s[i] in ['a','e','i','o','u','A','E','I','O','U']:
+                s[i]=tmp[k-1]
+                k-=1
+        return  ''.join(s)
