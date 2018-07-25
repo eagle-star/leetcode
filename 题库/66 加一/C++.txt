@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int len = digits.size();
+        vector<int> res;
+        if(len==0)
+        {
+            res.push_back(1);
+            return res;
+        }
+        int carray = 1;
+        for(int i =len-1;i>=0;i--)
+        {
+            int sum = digits[i] + carray;//先求总和在进行判断进位
+            if (sum>=10){
+                carray =1;
+            }
+            else
+                carray =0;
+            res.insert(res.begin(),sum%10);//在容器指定为插入元素
+        }
+        if(carray){
+            res.insert(res.begin(),1);//最后判断首位需不需要插入1
+        }
+        return res;
+    }
+};
