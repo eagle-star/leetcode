@@ -1,0 +1,18 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int numbers = nums.size();
+        while(k>0) //循环几次就看k多少
+        {
+            int t=0;
+            t = nums[numbers-1];//这是获取数组最高位置的数字
+            for(int i=numbers-2;i>=0;i--)//从倒数第二个数字开始，把前一个数付给当前的位置
+            {
+                nums[i+1]=nums[i];
+            }
+            nums[0] = t;//把数组最高位给到最开始位置
+            k--;//完成一次循环
+        }
+        
+    }
+};
