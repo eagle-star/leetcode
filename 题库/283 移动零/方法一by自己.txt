@@ -1,0 +1,26 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int start1=0;
+        int start2=0;
+        int end=nums.size()-1;
+        //放两个指针，寻找零和不是零的两个数
+        while(start1 < nums.size()-1 && start2 <= nums.size()-1)
+        {
+            if(nums[start1]==0 && nums[start2] !=0)
+            {
+                int temp = nums[start1];
+                nums[start1] = nums[start2];
+                nums[start2] = temp;
+            }
+            else if(nums[start1]==0 && nums[start2] ==0)
+            {
+                start2++;
+            }
+            else{
+                start1++;
+                start2++;
+            }
+        }
+    }
+};
